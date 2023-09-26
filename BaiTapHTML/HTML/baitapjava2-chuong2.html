@@ -1,0 +1,85 @@
+<html>
+<head>
+    <title>Form Đăng Ký Email</title>
+    <style>
+        .tooltip {
+            display: none;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+	<h1>ĐĂNG KÝ HÒM THƯ</h1>
+    <form onsubmit="return kiemTraForm();">
+        <label for="username">User Name:</label>
+        <input type="text" id="username" name="username">
+        <div class="tooltip" id="usernameTooltip">Nhập mã người dùng</div>
+		<br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email">
+        <div class="tooltip" id="emailTooltip">Nhập địa chỉ Email</div>
+		<br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <div class="tooltip" id="passwordTooltip">Nhập mật khẩu</div>
+		<br><br>
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword">
+        <div class="tooltip" id="confirmPasswordTooltip">Gõ lại mật khẩu</div>
+		<br><br>
+		<td>Giới Tính: 
+			<input type="radio" id="male" name="gender" value="male"><label for="male">Nam</label>
+			<input type="radio" id="female" name="gender" value="female"><label for="female">Nữ</label>
+		</td>
+		<br><br>
+        <label for="birthday">Ngày tháng năm sinh:</label>
+        <input type="text" id="birthday" name="birthday" placeholder="Ngày/Tháng/Năm">
+        <div class="tooltip" id="birthdayTooltip">Nhập ngày tháng năm sinh</div>
+		<br><br>
+        <input type="submit" value="Đăng ký">
+        <div class="tooltip" id="submitTooltip">Gửi thông tin đi để đăng ký</div>
+    </form>
+
+    <script>
+        var tooltips = document.querySelectorAll('.tooltip');
+        var formElements = document.querySelectorAll('input, button');
+
+        formElements.forEach(function(element) {
+            element.addEventListener('mouseover', function() {
+                var tooltipId = this.id + 'Tooltip';
+                var tooltip = document.getElementById(tooltipId);
+                tooltip.style.display = 'block';
+            });
+
+            element.addEventListener('mouseout', function() {
+                var tooltipId = this.id + 'Tooltip';
+                var tooltip = document.getElementById(tooltipId);
+                tooltip.style.display = 'none';
+            });
+        });
+
+        function kiemTraForm() {
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            var birthday = document.getElementById('birthday').value;
+
+            if (password !== confirmPassword) {
+                alert("Password phải giống nhau");
+                return false;
+            }
+
+            var birthdayParts = birthday.split('/');
+            var ngay = parseInt(birthdayParts[0]);
+            var thang = parseInt(birthdayParts[1]);
+            var nam = parseInt(birthdayParts[2]);
+
+            if (isNaN(ngay) || isNaN(thang) || isNaN(nam) || ngay <= 0 || ngay > 31 || thang <= 0 || thang > 12) {
+                alert("Ngày tháng năm sinh không hợp lệ");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>

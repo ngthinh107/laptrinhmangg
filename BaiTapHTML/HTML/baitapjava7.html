@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title>Di chuyển ảnh chéo</title>
+    <style>
+        #container {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* 100% chiều cao của viewport */
+            overflow: hidden; /* Ẩn phần ảnh vượt ra khỏi khung */
+        }
+
+        #image {
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: 5s; /* Thời gian di chuyển */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <img id="image" src="D:/BaiTapHTML/Images/baijava7.jpg" alt="Bức ảnh" width="200px" height="200px">
+    </div>
+    <button onclick="diChuyenAnh()">Di chuyển</button>
+
+    <script>
+        function diChuyenAnh() {
+            var image = document.getElementById("image");
+            var container = document.getElementById("container");
+
+            var containerWidth = container.clientWidth;
+            var containerHeight = container.clientHeight;
+
+            var endTop = containerHeight - image.clientHeight;
+            var endLeft = containerWidth - image.clientWidth;
+
+            image.style.top = endTop + "px";
+            image.style.left = endLeft + "px";
+
+            setTimeout(function() {
+                image.style.top = "0";
+                image.style.left = "0";
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

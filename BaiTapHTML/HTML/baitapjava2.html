@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Hiển thị Thời gian</title>
+</head>
+<body>
+    <h1 id="thoiGian" style="color: blue;"></h1>
+    <script>
+        function CapNhat() {
+            var hienTai = new Date();
+            var gio = hienTai.getHours();
+            var phut = hienTai.getMinutes();
+            var giay = hienTai.getSeconds();
+            var thoiGianChuoi = gio + ":" + phut + ":" + giay;
+            var thoiGianH1 = document.getElementById("thoiGian");
+            thoiGianH1.innerText = thoiGianChuoi;
+        }
+        setInterval(CapNhat, 1000);
+        CapNhat();
+    </script>
+</body>
+</html>

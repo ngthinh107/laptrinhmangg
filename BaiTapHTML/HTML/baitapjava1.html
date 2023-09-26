@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Thay đổi nội dung H1</title>
+</head>
+<body>
+    <h1 id="myHeading">Hello</h1>
+    <button onclick="thayDoi()">Thay đổi</button>
+
+    <script>
+        function thayDoi() {
+            var xauNhap = prompt("Nhập xâu mới:");
+            if (xauNhap !== null) {
+                var h1Element = document.getElementById("myHeading");
+
+                // Sử dụng innerText
+                // h1Element.innerText = xauNhap;
+
+                // Sử dụng innerHTML
+                // h1Element.innerHTML = xauNhap;
+
+                // Sử dụng outerText
+                // h1Element.outerText = xauNhap;
+				
+				// Sử dụng outerHTML
+                h1Element.outerHTML = `<h1>${xauNhap}</h1>`;
+
+             
+            }
+        }
+    </script>
+</body>
+</html>

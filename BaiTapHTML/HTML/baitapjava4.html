@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Di chuyển tầng khi click chuột</title>
+    <style>
+        #movingLayer {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+        }
+
+        #links {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onClick="moveLayer(event)">
+    <div id="movingLayer">Tầng di chuyển</div>
+    <div id="links">
+        <a href="https://tuoitre.vn/">Liên kết 1</a>
+        <a href="https://vietnamnet.vn/">Liên kết 2</a>
+        <a href="https://vtc.vn/">Liên kết 3</a>
+    </div>
+
+    <script>
+        function moveLayer(event) {
+            var movingLayer = document.getElementById("movingLayer");
+
+            var mouseX = event.clientX;
+            var mouseY = event.clientY;
+         
+            movingLayer.style.left = mouseX + "px";
+            movingLayer.style.top = mouseY + "px";
+        }
+    </script>
+</body>
+</html>

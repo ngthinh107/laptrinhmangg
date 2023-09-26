@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Tinh tich</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script language="JavaScript">
+        function TinhToan() {
+            var SoLuong = document.getElementsByName("SoLuong")[0];
+            var DonGia = document.getElementsByName("DonGia")[0];
+            var ThanhTien = document.getElementsByName("ThanhTien")[0];
+
+            var soLuongValue = parseFloat(SoLuong.value);
+            var donGiaValue = parseFloat(DonGia.value);
+
+            if (!isNaN(soLuongValue) && !isNaN(donGiaValue)) {
+
+                var thanhTienValue = soLuongValue * donGiaValue;
+
+                ThanhTien.value = thanhTienValue + " USD";
+            } else {
+               
+                ThanhTien.value = "";
+            }
+        }
+    </script>
+</head>
+<body style="font-family: arial; background-color: lavender">
+    <h1>Bạn hãy nhập vào số lượng và giá:</h1>
+    Số lượng: <input name="SoLuong" onKeyUp="TinhToan();">
+    Đơn giá: <input name="DonGia" onKeyUp="TinhToan();"> <hr>
+    Thành tiền: <input name="ThanhTien"> USD
+</body>
+</html>

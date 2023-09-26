@@ -1,0 +1,53 @@
+<html>
+<head>
+    <title>Form Đăng Ký E-Mail</title>
+    <style>
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        .tooltip {
+            display: none;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <h1>Đăng Ký E-Mail</h1>
+    <form>
+        <label for="tenDangNhap">Tên đăng nhập:</label>
+        <input type="text" id="tenDangNhap" name="tenDangNhap">
+        <div class="tooltip" id="tenDangNhapTooltip">Nhập tên đăng nhập của bạn.</div>
+
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email">
+        <div class="tooltip" id="emailTooltip">Nhập địa chỉ E-Mail của bạn.</div>
+
+        <label for="matKhau">Mật khẩu:</label>
+        <input type="password" id="matKhau" name="matKhau">
+        <div class="tooltip" id="matKhauTooltip">Nhập mật khẩu của bạn.</div>
+		<br>
+        <input type="submit" value="Đăng Ký">
+    </form>
+
+    <script>
+        var inputElements = document.querySelectorAll('input');
+        inputElements.forEach(function(input) {
+            input.addEventListener('mouseenter', function() {
+                var tooltipId = input.id + 'Tooltip';
+                var tooltip = document.getElementById(tooltipId);
+                tooltip.style.display = 'block';
+            });
+            input.addEventListener('mouseleave', function() {
+                var tooltipId = input.id + 'Tooltip';
+                var tooltip = document.getElementById(tooltipId);
+                tooltip.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>

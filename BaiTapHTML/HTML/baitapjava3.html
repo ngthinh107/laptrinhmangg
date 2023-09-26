@@ -1,0 +1,41 @@
+<html>
+<head>
+    <title>Di chuyển 2 tầng ảnh</title>
+    <style>
+        #layer1, #layer2 {
+            position: absolute;
+        }
+
+        #layer1 img, #layer2 img {
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div id="layer1">
+        <img src="D:/BaiTapHTML/Images/tang1.png" alt="Ảnh 1">
+    </div>
+
+    <div id="layer2">
+        <img src="D:/BaiTapHTML/Images/tang2.jpg" alt="Ảnh 2">
+    </div>
+
+    <script>
+        var leftPosition = 0;
+        var topPosition = 0;
+
+        function moveLayer1() {
+            leftPosition += 5; 
+            document.getElementById("layer1").style.left = leftPosition + "px";
+        }
+
+        function moveLayer2() {
+            topPosition += 5; 
+            document.getElementById("layer2").style.top = topPosition + "px";
+        }
+        setInterval(moveLayer1, 100);
+        setInterval(moveLayer2, 100);
+    </script>
+</body>
+</html>
